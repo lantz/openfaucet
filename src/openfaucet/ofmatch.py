@@ -76,12 +76,12 @@ class Wildcards(collections.namedtuple('Wildcards', (
                          | (OFPFW_DL_VLAN_PCP if self.dl_vlan_pcp else 0)
                          | (OFPFW_NW_TOS if self.nw_tos else 0))
 
-        if self.nw_src < 0 or self.nw_src > 32:
-            raise ValueError('invalid nw_src', self.nw_src)
+        #if self.nw_src < 0 or self.nw_src > 32:
+        #    raise ValueError('invalid nw_src', self.nw_src)
         wildcard_bits |= self.nw_src << OFPFW_NW_SRC_SHIFT
 
-        if self.nw_dst < 0 or self.nw_dst > 32:
-            raise ValueError('invalid nw_dst', self.nw_dst)
+        #if self.nw_dst < 0 or self.nw_dst > 32:
+        #    raise ValueError('invalid nw_dst', self.nw_dst)
         wildcard_bits |= self.nw_dst << OFPFW_NW_DST_SHIFT
 
         return wildcard_bits
